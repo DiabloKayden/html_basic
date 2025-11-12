@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Simple Contact Form</title>
+	<style>
+	label{
+	font-weight: bold;
+	}
+	h1{
+	font-size: 60px;
+	
+	}
+	
+	fieldset{
+	position: relative;
+	width: 320px;
+	height: 50px;
+	padding: 10px;
+	border: 5px light black;
+	margin: 500;
+	}
+	.x1 {
+	
+	text-align:right;
+	background-color:navy;
+	color:white;
+	padding;5px;
+	}
+	.x2 {
+	
+	position:relaive;
+	left:450px;
+	width : 500px;
+	height : 250px;
+	border: 5px light black;
+	}
+	#name{
+	position: relaive;
+	left: 100px;
+	width: 350px;
+	border: 3px solid red;
+	margin:20px;
+	}
+	
+	
+	#email{
+	position: relaive;
+	left: 100px;
+	width: 350px;
+	border: 3px solid red;
+	margin:20px;
+	}
+	#message{
+	position: top;
+	left: 100px;
+	width: 350px;
+	border: 3px solid red;
+	margin:10px;
+	}
+	#button{
+	color: white;
+	background-color: navy;
+	
+	}
+	#button:hover{
+	color: white;
+	background-color: red;
+	
+	}
+	
+	</style>
+   
+</head>
+<body>
+    <h1>Contact Us</h1>
+
+    
+        <fieldset class="x2">
+            <legend class="x1">Remember to fill in all fields!</legend>
+		<form>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+			<br>
+			
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+			<br>
+			
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+			
+
+            <div class="checkbox">
+                <label for="subscribe">Subscribe to </label>
+				<label for="subscribe">newsletter</label>
+                <input type="checkbox" id="subscribe" name="subscribe">
+            </div>
+
+            <button  type="submit" id="button" name="button">Send</button>
+			</form>
+        </fieldset
+</body>
+</html>
