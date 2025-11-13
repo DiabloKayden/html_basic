@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Capitalize First Letter of Each Word</title>
+  
+</head>
+<body>
+  <h2>Capitalize First Letter of Each Word</h2>
+ 
+  <input type="text" id="textInput"  onkeyup="capitalizeWords()">
+  
+  <p><b>Output:</b></p>
+  <p id="output"></p>
+ 
+  <script>
+    function capitalizeWords() {
+      let input = document.getElementById("textInput").value;
+      let words = input.split(" ");
+      for (let i = 0; i < words.length; i++) {
+        if (words[i].length > 0) {
+          words[i] = words[i][0].toUpperCase() + words[i].substring(1);
+        }
+      }
+      document.getElementById("output").innerText = words.join(" ");
+    }
+  </script>
+</body>
+</html>
+
+-----------------------------------------------------------
+
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Capitalize First Letter of Each Word</title>
+  <style>
+    #textInput, #output {
+      border: 2px solid black;
+      padding: 5px;
+      width: 300px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover effect for both boxes */
+    #textInput:hover, #output:hover {
+      border-color: lightskyblue;
+      background-color: lightyellow;
+    }
+
+    /* Text color change only for output on hover */
+    #output:hover {
+      color: darkorange;
+    }
+
+    #output {
+      min-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Capitalize First Letter of Each Word</h2>
+ 
+  <input type="text" id="textInput" onkeyup="capitalizeWords()">
+  
+  <p><b>Output:</b></p>
+  <p id="output"></p>
+ 
+  <script>
+    function capitalizeWords() {
+      let input = document.getElementById("textInput").value;
+      let words = input.split(" ");
+      for (let i = 0; i < words.length; i++) {
+        if (words[i].length > 0) {
+          words[i] = words[i][0].toUpperCase() + words[i].substring(1);
+        }
+      }
+      document.getElementById("output").innerText = words.join(" ");
+    }
+  </script>
+</body>
+</html>
