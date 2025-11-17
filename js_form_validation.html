@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Form :</h2>
+
+<form id="myForm" onsubmit="return validateForm()">
+
+  <label>First name:</label><br>
+  <input type="text" id="fname"><br><br>
+
+  <label>Password:</label><br>
+  <input type="password" id="password"><br><br>
+
+  <label>Gender:</label><br>
+  <input type="radio" name="gender" value="Male"> Male<br>
+  <input type="radio" name="gender" value="Female"> Female<br><br>
+
+  <label>Language:</label><br>
+  <input type="checkbox" id="lang1" value="Bangla"> Bangla<br>
+  <input type="checkbox" id="lang2" value="Chinese"> Chinese<br>
+  <input type="checkbox" id="lang3" value="English"> English<br><br>
+
+  <label>Choose your region:</label>
+  <select id="country">
+    <option value="">--Select--</option>
+    <option value="Bangladesh">Bangladesh</option>
+    <option value="USA">USA</option>
+    <option value="China">China</option>
+    <option value="Russia">Russia</option>
+  </select>
+  <br><br>
+
+  <label>Date of Birth:</label>
+  <input type="date" id="birthday"><br><br>
+
+  <label>Select color:</label>
+  <input type="color" id="color"><br><br>
+
+  <label>About yourself:</label><br>
+  <textarea id="biography" rows="8" cols="50"></textarea>
+  <br><br>
+
+  <input type="submit" value="Done">
+
+</form>
+
+<script>
+function validateForm() {
+  
+  // First name validation
+  let fname = document.getElementById("fname").value.trim();
+  if (fname === "") {
+    alert("Please enter your first name.");
+    return false;
+  }
+
+  // Password validation
+  let password = document.getElementById("password").value.trim();
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters.");
+    return false;
+  }
+
+  // Gender validation
+  let gender = document.querySelector('input[name="gender"]:checked');
+  if (!gender) {
+    alert("Please select your gender.");
+    return false;
+  }
+
+  // Language validation
+  let lang1 = document.getElementById("lang1").checked;
+  let lang2 = document.getElementById("lang2").checked;
+  let lang3 = document.getElementById("lang3").checked;
+
+  if (!lang1 && !lang2 && !lang3) {
+    alert("Please select at least one language.");
+    return false;
+  }
+
+  // Country selection
+  let country = document.getElementById("country").value;
+  if (country === "") {
+    alert("Please select your region.");
+    return false;
+  }
+
+  // Date of birth validation
+  let dob = document.getElementById("birthday").value;
+  if (dob === "") {
+    alert("Please select your date of birth.");
+    return false;
+  }
+
+  // Biography validation
+  let bio = document.getElementById("biography").value.trim();
+  if (bio.length < 10) {
+    alert("Biography must be at least 10 characters.");
+    return false;
+  }
+
+  alert("Form submitted successfully!");
+  return true; // allow form submission
+}
+</script>
+
+</body>
+</html>
+
+
+
+----------------------------------------------------
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Form :</h2>
+
+<form id="myForm" onsubmit="return validateForm()">
+
+  <label>First name:</label><br>
+  <input type="text" id="fname">
+  <div id="err_fname" style="color:red; font-size:14px;"></div>
+  <br>
+
+  <label>Password:</label><br>
+  <input type="password" id="password">
+  <div id="err_password" style="color:red; font-size:14px;"></div>
+  <br>
+
+  <label>Gender:</label><br>
+  <input type="radio" name="gender" value="Male"> Male<br>
+  <input type="radio" name="gender" value="Female"> Female
+  <div id="err_gender" style="color:red; font-size:14px;"></div>
+  <br><br>
+
+  <label>Language:</label><br>
+  <input type="checkbox" id="lang1" value="Bangla"> Bangla<br>
+  <input type="checkbox" id="lang2" value="Chinese"> Chinese<br>
+  <input type="checkbox" id="lang3" value="English"> English
+  <div id="err_language" style="color:red; font-size:14px;"></div>
+  <br>
+
+  <label>Choose your region:</label>
+  <select id="country">
+    <option value="">--Select--</option>
+    <option value="Bangladesh">Bangladesh</option>
+    <option value="USA">USA</option>
+    <option value="China">China</option>
+    <option value="Russia">Russia</option>
+  </select>
+  <div id="err_country" style="color:red; font-size:14px;"></div>
+  <br><br>
+
+  <label>Date of Birth:</label>
+  <input type="date" id="birthday">
+  <div id="err_birthday" style="color:red; font-size:14px;"></div>
+  <br><br>
+
+  <label>Select color:</label>
+  <input type="color" id="color"><br><br>
+
+  <label>About yourself:</label><br>
+  <textarea id="biography" rows="8" cols="50"></textarea>
+  <div id="err_biography" style="color:red; font-size:14px;"></div>
+  <br>
+
+  <input type="submit" value="Done">
+
+</form>
+
+<script>
+function validateForm() {
+
+  // Clear previous errors
+  document.getElementById("err_fname").innerHTML = "";
+  document.getElementById("err_password").innerHTML = "";
+  document.getElementById("err_gender").innerHTML = "";
+  document.getElementById("err_language").innerHTML = "";
+  document.getElementById("err_country").innerHTML = "";
+  document.getElementById("err_birthday").innerHTML = "";
+  document.getElementById("err_biography").innerHTML = "";
+
+  let flag = true;  // Validation flag
+
+  // First name
+  let fname = document.getElementById("fname").value.trim();
+  if (fname === "") {
+    document.getElementById("err_fname").innerHTML = "First name is required.";
+    flag = false;
+  }
+
+  // Password
+  let password = document.getElementById("password").value.trim();
+  if (password.length < 6) {
+    document.getElementById("err_password").innerHTML = "Password must be at least 6 characters.";
+    flag = false;
+  }
+
+  // Gender
+  let gender = document.querySelector('input[name="gender"]:checked');
+  if (!gender) {
+    document.getElementById("err_gender").innerHTML = "Please select your gender.";
+    flag = false;
+  }
+
+  // Language
+  let lang1 = document.getElementById("lang1").checked;
+  let lang2 = document.getElementById("lang2").checked;
+  let lang3 = document.getElementById("lang3").checked;
+
+  if (!lang1 && !lang2 && !lang3) {
+    document.getElementById("err_language").innerHTML = "Select at least one language.";
+    flag = false;
+  }
+
+  // Country
+  let country = document.getElementById("country").value;
+  if (country === "") {
+    document.getElementById("err_country").innerHTML = "Please select a region.";
+    flag = false;
+  }
+
+  // Birthday
+  let birthday = document.getElementById("birthday").value;
+  if (birthday === "") {
+    document.getElementById("err_birthday").innerHTML = "Enter date of birth.";
+    flag = false;
+  }
+
+  // Biography
+  let bio = document.getElementById("biography").value.trim();
+  if (bio.length < 10) {
+    document.getElementById("err_biography").innerHTML = "Biography must be at least 10 characters.";
+    flag = false;
+  }
+
+  return flag;  // If false, form will NOT submit
+}
+</script>
+
+</body>
+</html>
